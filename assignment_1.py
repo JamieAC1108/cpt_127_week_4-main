@@ -14,5 +14,11 @@ Please run this to validate that you can read the file and see output.
 
 with open('student_grades.csv','r') as f:
 
-    for line in f:
-        print(line)
+    for line in f.readlines ()[1:]:
+        fields = line.replace('\n','').split(',')
+        print(fields)
+
+        id = fields[0]
+        first_name = fields[1]
+        last_name = fields[2]
+        grade = int(fields[3])
